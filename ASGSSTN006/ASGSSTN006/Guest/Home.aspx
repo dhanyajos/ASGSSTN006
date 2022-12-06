@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <table style="margin-left: 300px; margin-top: 150px;">
+             <h3 style="margin-left: 300px; margin-top: 50px;">Add Employee</h3>
+            <table style="margin-left: 300px;">
 
                 <tr>
                     <td width="200">
