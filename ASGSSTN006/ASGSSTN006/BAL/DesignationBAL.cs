@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.HtmlControls;
 
 namespace ASGSSTN006.BAL
 {
@@ -12,7 +13,7 @@ namespace ASGSSTN006.BAL
         private int _desigid;
         private string _desig;
         private int _deptid;
-
+        private string _chk;
         public int desigid
         {
             get
@@ -48,7 +49,17 @@ namespace ASGSSTN006.BAL
                 _deptid = value;
             }
         }
-
+        public string chk
+        {
+            get
+            {
+                return _chk;
+            }
+            set
+            {
+                _chk = value;
+            }
+        }
         public DataTable DesignationValues()
         {
 
@@ -73,5 +84,11 @@ namespace ASGSSTN006.BAL
         {
             return objdeptdl.Delete_Designation(this);
         }
+        public int DeleteAll()
+        {
+            return objdeptdl.Delete_all(this);
+        }
+
+
     }
 }

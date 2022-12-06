@@ -68,5 +68,12 @@ namespace ASGSSTN006.DAL
             SqlCommand cmd = new SqlCommand(s, Getcon());
             return cmd.ExecuteNonQuery();
         }
+
+        public int Delete_all(BAL.DesignationBAL obj)
+        {
+            string s = "delete from Designation where desigId='" + obj.chk + "'";
+            SqlCommand cmd = new SqlCommand(s, Getcon());
+            return cmd.ExecuteNonQuery();
+        }
     }
 }

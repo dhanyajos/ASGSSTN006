@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ASGSSTN006
@@ -37,6 +38,8 @@ namespace ASGSSTN006
             objdptbl.deptid = Convert.ToInt32(ddldept.SelectedIndex);
 
             int i = objdptbl.insertDesignation();
+            TextBox1.Text = "";
+            ddldept.SelectedIndex = 0;
             GridView1.DataSource = objdptbl.viewDesignation();
             GridView1.DataBind();
         }
@@ -82,6 +85,20 @@ namespace ASGSSTN006
             GridView1.DataBind();
         }
 
-       
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            HtmlInputCheckBox chk;
+            foreach (GridViewRow dr in GridView1.Rows)
+            {
+                chk = (HtmlInputCheckBox)dr.FindControl("ch");
+                if (chk.Checked)
+                {
+                    objdptbl.chk = chk.Value;
+                    objdptbl.DeleteAll();
+                }
+            }
+            GridView1.DataSource = objdptbl.viewDesignation();
+            GridView1.DataBind();
+        }
     }
 }

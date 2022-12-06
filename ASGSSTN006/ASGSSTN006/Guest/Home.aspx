@@ -45,8 +45,12 @@
             <h3 style="margin-left: 300px;">Designation Details</h3><br />
             <asp:GridView ID="GridView1" runat="server" style="margin-left: 300px;" Width="634px" AutoGenerateColumns="False" DataKeyNames="desigId" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                 <Columns>
+                    <asp:TemplateField>
+                    <ItemTemplate>
+                    <input type="checkbox" runat="server" name="ch"  id="ch" value='<%#Eval("desigId")%>' />
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="dept_name" HeaderText="Department" />
-                    <asp:BoundField DataField="desigId" HeaderText="Designation ID" />
                     <asp:BoundField DataField="desigName" HeaderText="Designation" />
                     <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
@@ -54,8 +58,8 @@
 
 
                 </Columns>
-            </asp:GridView>
-
+            </asp:GridView><br />
+                 <asp:Button ID="Button2" runat="server" Text="DeleteAll" OnClick="Button2_Click" style="margin-left: 449px" Width="183px" />
         </div>
     </form>
 </body>
